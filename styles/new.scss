@@ -1,0 +1,80 @@
+@use "variables" as v;
+
+.new {
+	max-width: 1172px;
+	margin: 0 auto;
+	padding-top: 100px;
+	@media (max-width: v.$tablet){
+		padding-top: 70px;
+	}
+}
+
+.new__container {
+	display: flex;
+	justify-content: space-between;
+	gap: 60px;
+
+	@media (max-width: v.$big-tablet){
+		flex-direction: column-reverse;
+	}
+}
+
+.new__left {
+	display: flex;
+	justify-content: space-around;
+	gap: 30px;
+	width: calc(676px / 1320px * 100%);
+	@media (max-width: v.$tablet){
+		width: auto;
+	}
+	@media (max-width: v.$big-mobile){
+		flex-wrap: wrap;
+	}
+}
+
+.new-image{
+	flex: 1 1 47%;
+	width: 308px;
+	aspect-ratio: 5/7;
+	img{
+		width: 100%;
+		object-fit: cover;
+	}
+	@media (max-width: v.$big-mobile){
+		width: 353px;
+	}
+}
+
+.new-image2 {
+	margin-top: 40px;
+	@media (max-width: v.$tablet){
+		margin-top: auto;
+	}
+}
+.new__rigth {
+	max-width: 450px;
+	margin-top: 70px;
+	@media (max-width: v.$tablet){
+		margin-top: 0;
+	}
+
+	@media (max-width: v.$big-tablet){
+		margin: 0 auto;
+		max-width: none;
+		text-align: center;
+	}
+}
+.new__rigth--content {
+
+}
+
+.new__text {
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 26px;
+	margin-bottom: 40px;
+}
+.new__btn {
+}
+.btn-consult {
+}

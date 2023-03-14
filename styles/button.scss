@@ -1,0 +1,10 @@
+.btn-consult{
+	cursor: pointer;
+	transition: fill .3s;
+	svg{
+		fill: none;
+		&:hover{
+			fill: var(--accent);
+		}
+	}
+}

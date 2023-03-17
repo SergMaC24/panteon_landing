@@ -1,0 +1,140 @@
+@use "variables" as v;
+
+.gallery {
+  padding: 0 15px;
+  @media (max-width: v.$min-tablet) {
+    padding: 0;
+  }
+
+  &-container {
+    max-width: 1162px;
+    margin: 0 auto;
+    padding: 0 15px;
+    @media (max-width: v.$min-tablet) {
+      padding: 0;
+    }
+  }
+
+  &__top {
+    position: relative;
+    margin-bottom: 60px;
+    padding-bottom: 30px;
+    padding-left: 50px;
+    padding-right: 50px;
+    @media (max-width: v.$big-tablet) {
+      padding: 0;
+    }
+  }
+  &-top__img {
+    width: 268px;
+    aspect-ratio: 3/4;
+  }
+}
+.slider-top {
+  margin-bottom: 35px;
+}
+
+.subtitle {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.swiper {
+  &-button-next::after,
+  &-button-prev::after {
+    display: none;
+  }
+
+  &-button-prev,
+  &-button-next {
+    // position: relative;
+    height: 40px;
+    width: 40px;
+  }
+}
+
+.swiper-button-prev-unique-top,
+.swiper-button-next-unique-top {
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 25%;
+  @media (max-width: v.$big-tablet) {
+    display: none;
+  }
+}
+
+.swiper-button-prev-unique-top {
+  background-image: url("assets/images/gallery/arrow.svg");
+  left: -17px;
+}
+
+.swiper-button-next-unique-top {
+  background-image: url("assets/images/gallery/arrow.svg");
+  transform: rotate(180deg);
+  right: -17px;
+}
+
+.gallery__bottom {
+  position: relative;
+  text-align: center;
+  &-bottom__img {
+    width: 362px;
+    aspect-ratio: 5/4;
+  }
+}
+
+.swiper-button-prev-unique-bot,
+.swiper-button-next-unique-bot {
+  position: absolute;
+  bottom: 25%;
+  @media (max-width: v.$big-tablet) {
+    display: none;
+  }
+}
+
+.swiper-button-prev-unique-bot {
+  background-image: url("assets/images/gallery/arrow.svg");
+  left: -63px;
+}
+
+.swiper-button-next-unique-bot {
+  background-image: url("assets/images/gallery/arrow.svg");
+  transform: rotate(180deg);
+  right: -69px;
+}
+
+.swiper-scrollbar-drag {
+  background: var(--white);
+}
+.swiper-scrollbar.swiper-scrollbar-horizontal {
+  position: relative;
+  margin: 20px auto;
+
+  bottom: 0px;
+  width: 85%;
+  height: 4px;
+  background-color: var(--white);
+}
+.swiper-gallery.swiper-scrollbar-drag {
+  background: none;
+  transform: translate3d(986px, 0px, 0px);
+}
+
+// .swiper-scrollbar .swiper-gallery .swiper-scrollbar-drag::after{
+// 	width: 200px;
+// }
+.swiper-scrollbar-drag:after {
+  content: "";
+  width: 200px;
+  height: 10px;
+  border-radius: 5px;
+  background: var(--accent);
+  position: absolute;
+  top: -2px;
+  left: 25%;
+  margin: 0 0 0 -20px;
+  @media (max-width: v.$min-tablet) {
+    width: 102px;
+  }
+}

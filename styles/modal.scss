@@ -1,0 +1,183 @@
+@use "variables" as v;
+
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 99;
+  background-color: rgba(0, 0, 0, 0.3);
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.4s, opacity 0.4s;
+
+  display: grid;
+  place-items: center;
+
+  &__box {
+    max-width: 900px;
+    min-height: 539px;
+    z-index: 1;
+    position: relative;
+
+    background-color: #0c1417;
+    transform: scale(0);
+    transition: transform 0.8s;
+    @media (max-width: v.$big-mobile){
+      min-height: 463px;
+    }
+    &::before {
+      position: absolute;
+      content: "";
+      background-image: url("assets/images/abonement-left-top.svg");
+      width: 176px;
+      height: 313px;
+      bottom: 13%;
+      @media (max-width: v.$big-mobile){
+        display: none;
+      }
+    }
+  }
+
+  &.open {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &.open .modal__box {
+    transform: scale(1);
+  }
+
+  &__box--img {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 40px;
+    @media (max-width: v.$big-mobile) {
+      margin-right: 24px;
+      text-align: center;
+      align-items: center;
+    }
+  }
+
+  &__box--logo {
+    margin-left: 20px;
+    margin-top: 20px;
+    @media (max-width: v.$big-mobile) {
+      width: 150px;
+      margin: 0;
+    }
+  }
+
+  &__box--close {
+    cursor: pointer;
+    @media (max-width: v.$big-mobile) {
+      height: 25px;
+    }
+  }
+
+  &__box--content {
+    max-width: 589px;
+    margin: 0 156px 110px 156px;
+    @media (max-width: v.$big-tablet) {
+      max-width: 650px;
+      margin: 0 31px 0px 94px;
+    }
+    @media (max-width: v.$big-mobile) {
+      max-width: 300px;
+      margin: 0 5px 0px 5px;
+    }
+  }
+}
+.box {
+  &__content {
+  }
+
+  &__content--title {
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 34px;
+    margin: 80px 0 30px 0;
+    position: relative;
+    @media (max-width: v.$big-mobile) {
+      font-size: 20px;
+      margin: 51px 0 30px 49px;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      background-image: url("assets/images/icons/modal.svg");
+      width: 41px;
+      height: 29px;
+      left: -60px;
+      @media (max-width: v.$big-mobile){
+        left: -51px;
+        top: 10px;
+      }
+    }
+  }
+
+  &__content--text {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 34px;
+    margin-bottom: 30px;
+    @media (max-width: v.$big-mobile){
+      margin-left: 10px;
+    }
+  }
+
+  &__content--contact {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    @media (max-width: v.$big-mobile){
+      grid-template-columns: 1fr;
+      grid-gap: 14px;
+    }
+  }
+
+  &__content--address {
+    position: relative;
+    margin-left: 40px;
+    &::before {
+      content: "";
+      position: absolute;
+      background-image: url("assets/images/icons/location.svg");
+      width: 24px;
+      height: 24px;
+      left: -35px;
+      top: -4px;
+      @media (max-width: v.$big-mobile){
+        left: -38px;
+      }
+    }
+  }
+
+  &__content--time {
+    position: relative;
+    margin-left: 42px;
+    &::before {
+      content: "";
+      position: absolute;
+      background-image: url("assets/images/icons/clock.svg");
+      width: 24px;
+      height: 24px;
+      left: -39px;
+      top: -4px;
+    }
+  }
+
+  &__content--social-text {
+    margin-top: 15px;
+    text-align: center;
+  }
+
+  &__content--social-icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+    text-align: center;
+  }
+}

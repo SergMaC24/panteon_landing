@@ -1,3 +1,5 @@
+@use "variables" as v;
+
 .abonement {
   background-color: #fff;
   padding-bottom: 100px;
@@ -6,11 +8,26 @@
   &__decor--left-top{
     position: absolute;
     top: -216px;
+    @media (max-width: v.$min-tablet) {
+      display: none;
+    }
   }
 
   &__decor--left-bottom{
     position: absolute;
     bottom: 505px;
+    @media (max-width: v.$big-mobile){
+      height: 200px;
+    }
+  }
+
+  &__decor--right-top{
+    position: absolute;
+    right: 0;
+    top: 394px;
+    @media (max-width: v.$big-mobile){
+      height: 200px;
+    }
   }
 
   p {
@@ -32,6 +49,9 @@
     font-size: 18px;
     line-height: 24px;
     color: var(--background);
+    @media (max-width: v.$big-mobile) {
+      font-size: 16px;
+    }
   }
 
   .accent-text {
@@ -39,6 +59,9 @@
     font-size: 18px;
     line-height: 24px;
     color: var(--accent);
+    @media (max-width: v.$big-mobile) {
+      font-size: 16px;
+    }
   }
 
   .min-text{
@@ -52,72 +75,94 @@
     margin-bottom: 45px;
   }
 
+  .swiper-wrapper{
+    &__top{
+      padding-bottom: 75px;
+      @media (max-width: 400px) {
+        padding-bottom: 115px;
+      }
+    }
+    &__bottom{
+      padding-bottom: 70px;
+    }
+  }
+
+  .swiper-scrollbar-drag {
+    background: var(--background);
+  }
+
+  .swiper-scrollbar.swiper-scrollbar-horizontal {
+    position: relative;
+    margin: 20px auto;
+
+    bottom: 0px;
+    width: 85%;
+    height: 4px;
+    background-color: var(--background);
+
+    @media (max-width: v.$min-tablet) {
+      position: absolute;
+    }
+  }
+  .swiper-gallery.swiper-scrollbar-drag {
+    background: none;
+    transform: translate3d(986px, 0px, 0px);
+  }
+
+  .swiper-scrollbar-drag:after {
+    content: "";
+    width: 200px;
+    height: 10px;
+    border-radius: 5px;
+    background: var(--accent);
+    position: absolute;
+    top: -2px;
+    left: 45%;
+    margin: 0 0 0 -20px;
+    @media (max-width: v.$min-tablet) {
+      width: 102px;
+    }
+  }
+
   &__title {
     color: var(--background);
     padding-top: 160px;
   }
 
-  &__top {
+  &__top{
     position: relative;
-  }
-
-  &__top-main {
     display: flex;
-    justify-content: space-around;
-
+    justify-content: space-between;
+    text-align: center;
     &::before {
       content: "";
       position: absolute;
       border-bottom: 1px solid rgba(12, 20, 23, 0.5);
-      width: 99%;
+      width: 97%;
       top: 20px;
       padding-bottom: 15px;
     }
 
-    &--one {
-      max-width: 241px;
-      margin-right: 72px;
-      li {
-        margin-bottom: 57px;
-      }
-    }
-
-    &--two {
+    ul{
       display: flex;
       flex-direction: column;
-      white-space: nowrap;
-      margin-right: 110px;
-      li:first-child {
-        margin-bottom: 64px;
-      }
-      li {
-        margin-bottom: 88px;
-      }
+      justify-content: space-between;
+      height: 370px;
     }
 
-    &--three {
-      max-width: 152px;
-      text-align: center;
-      li {
-        margin-bottom: 88px;
-      }
-    }
-
-    &--four {
+    li{
+      margin-bottom: 45px;
       max-width: 195px;
-      text-align: center;
-      li {
-        margin-bottom: 40px;
-      }
     }
 
-    &--five {
-      max-width: 192px;
-      text-align: center;
-      li {
-        margin-bottom: 40px;
-      }
+    .first-ul{
+      text-align: left;
+      max-width: 248px;
     }
+
+    .last-ul{
+      padding-right: 24px;
+    }    
   }
 
   &__middle--content {
@@ -140,7 +185,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-
+      height: 305px;
     }
 
     li{
@@ -154,24 +199,14 @@
 
     .last-ul{
       padding-right: 24px;
-    }
-
-    &-one{
-      max-width: 232px;
-      margin-right: 105px;
-      text-align: start;
-    }
-
-    &-two{
-      max-width: 181px;
-      margin-right: 95px;
-    }
+    }    
 
   }
 
   &__subtitle {
     color: var(--background);
     font-size: 24px;
+    margin-top: 90px;
   }
 
   &__bottom {
@@ -179,20 +214,56 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     justify-items: center;
+    @media (max-width: v.$min-tablet) {
+      grid-template-columns: 1fr;
+      grid-row-gap: 30px;
+    }
 
     .bottom__item{
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
       align-items: center;
 
       max-width: 308px;
       background-color: var(--white);
       box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.08);
-      transition: color .3s;
+      transition: all .3s;
+      @media (max-width: v.$big-tablet) {
+        max-width: 226px;
+        height: 372px;
+      }
+      @media (max-width: v.$min-tablet){
+        max-width: 450px;
+      }
+      @media (max-width: v.$big-mobile) {
+        max-width: 226px;
+      }
 
       &:hover{
         .bottom__item--title{
           color: var(--accent);
+        }
+        .bottom__item--btn{
+          background: var(--accent);
+          color: var(--white);
+        }
+      }
+
+      &-block{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        @media (max-width: v.$big-tablet){
+          flex-direction: row-reverse;
+          gap: 10px;
+          &--last{
+            padding: 20px 0px 11px 19px;
+            @media (max-width: v.$min-tablet){
+              max-width: 300px;
+            }
+          }
         }
       }
 
@@ -206,6 +277,9 @@
       img{
         width: 34px;
         margin: 30px 0 15px 0;
+        @media (max-width: v.$big-tablet){
+          margin: 15px 0 15px 0;
+        }
       }
 
       &--time{
@@ -245,16 +319,15 @@
         -moz-transform: skew(-30deg);
         -o-transform: skew(-30deg);
         transform: skew(-30deg);
-
-        &:hover{
-          background: var(--accent);
-          color: var(--white);
+        @media (max-width: v.$big-tablet) {
+          width: 150px;
         }
       }
     }
 
   }
 }
+
 }
 
 

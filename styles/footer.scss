@@ -1,0 +1,105 @@
+@use "variables" as v;
+
+.footer {
+  background-color: #000;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  color: rgba(255, 255, 255, 0.7);
+  @media (max-width: v.$big-tablet) {
+    margin-top: -17px;
+  }
+  @media (max-width: v.$big-mobile) {
+    font-size: 18px;
+    text-align: center;
+  }
+
+  &-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 10px 50px 10px;
+    align-items: center;
+    @media (max-width: v.$big-mobile) {
+      flex-direction: column;
+      padding-bottom: 77px;
+    }
+  }
+
+  &__logo {
+    &--block {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      position: relative;
+      @media (max-width: v.$big-mobile) {
+        .footer__copy {
+          position: absolute;
+          bottom: -511px;
+          padding-bottom: 15px;
+          margin-top: 10px;
+        }
+      }
+    }
+    text-align: center;
+    li:nth-child(2) {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    gap: 55px;
+    @media (max-width: v.$big-tablet) {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-top: 50px;
+      @media (max-width: v.$big-mobile){
+        margin-top: 10px;
+      }
+    }
+  }
+
+  .footer-nav-social-inner {
+    display: flex;
+    gap: 100px;
+    align-items: center;
+    @media (max-width: v.$big-tablet) {
+      flex-direction: column-reverse;
+      gap: 0;
+      align-items: end;
+    }
+    @media (max-width: v.$big-mobile) {
+      align-items: center;
+    }
+  }
+
+  &__social--icon {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    @media (max-width: v.$big-mobile){
+      justify-content: center;
+    }
+  }
+
+  &__contact {
+    white-space: nowrap;
+    @media (max-width: v.$big-tablet) {
+      padding-top: 44px;
+      text-align: end;
+    }
+    @media (max-width: v.$big-mobile) {
+      text-align: center;
+    }
+  }
+
+  &__contact--item:not(:last-child) {
+    margin-bottom: 15px;
+
+    @media (max-width: v.$big-tablet) {
+      margin-bottom: 6px;
+    }
+  }
+}
